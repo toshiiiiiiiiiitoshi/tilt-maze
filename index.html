@@ -6,17 +6,42 @@
   <title>TILT MAZE</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
+<body>
+
+<h1>TILT MAZE</h1>
+
+<div id="modeSelect">
+  <button id="normalBtn">NORMAL</button>
+  <button id="hardBtn">HARD</button>
+</div>
+
+<div id="game" style="display: none;">
+<div id="besttimes">
+  <p id="normalBest">normalBest: 0.0</p>
+  <p id="hardBest">hardBest: 0.0</p>
+</div>
+  <p id="message"></p>
+  <p id="timer">00.0</p>
+
+  <div id="board">
+    <div id="ball"></div>
+  </div>
+
+  <button id="startBtn">start</button>
+  <button id="resetBtn">RESET</button>
+  <button id="modeChangeBtn">ハードモード</button>
+
+  <p class="note">説明文です</p>
+
+</div>
+
 <script src="three.min.js"></script>
 <script src="engine.js"></script>
 <script src="game.js"></script>
-<body>
-<h1>TILT MAZE</h1>
-<p id="timer">00.0</p>
-<div id="board">
-          <div id="ball"></div>
-        </div>
-<button id="startBtn">start</button>
-<p class="note">説明文です</p>
+
+</body>
+</html>
 <!--
   ============================================================
    勉強会(1)  ゲーム画面を作る
@@ -122,6 +147,3 @@
 
    ============================================================
 -->
-
-</body>
-</html>
