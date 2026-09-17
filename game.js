@@ -74,9 +74,9 @@ let xgoal = 30;
 let ygoal = 20;
 let rgoal = 10;
 
-let speed = 0.5;
-let speed2 = 0.7;
-let speed3 = 1.0;
+let speed = 1.0;
+let speed2 = 1.4;
+let speed3 = 1.6;
 
 let gxspeed = 1.0;
 let gyspeed = 0.0;
@@ -97,8 +97,14 @@ let walls = [
     { x: 100, y: 250, w: 130, h: 30 },
     { x: 100, y: 165, w: 30,  h: 100 },
     { x: 170, y: 50,  w: 80,  h: 5 },
+    { x: 145, y: 75,  w: 8,  h: 8 },
+    { x: 145, y: 25,  w: 8,  h: 8 },
+    { x: 110, y: 77,  w: 4,  h: 4 },
+    { x: 110, y: 27,  w: 4,  h: 4 },
     { x: 50,  y: 50,  w: 80,  h: 5 },
     { x: 40,  y: 200, w: 60,  h: 10 },
+    { x: 40,  y: 320, w: 85,  h: 5 },
+    { x: 250,  y: 320, w: 85,  h: 5 },
     { x: 0,   y: 260, w: 60,  h: 10 },
     { x: 120, y: 260, w: 5,  h: 70 },
     { x: 120, y: 360, w: 5,  h: 40 },
@@ -106,6 +112,7 @@ let walls = [
     { x: 160, y: 330, w: 5,  h: 70 },
     { x: 220, y: 280, w: 5,  h: 50 },
     { x: 220, y: 350, w: 5,  h: 55 }
+    
 ];
 
 
@@ -408,33 +415,89 @@ function update() {
     // 画面端
     // --------------------------------------
 
-    if (ball.x < 0) {
+    // --------------------------------------
+// 画面端
+// --------------------------------------
+
+if (ball.x < 0) {
+
+    if (hardMode) {
+
+        ball.x = initialBallX;
+        ball.y = initialBallY;
+
+        ball.vx = 0;
+        ball.vy = 0;
+
+    }
+    else {
 
         ball.x = 0;
         ball.vx = -ball.vx * 0.5;
 
     }
 
-    if (ball.x > 300) {
+}
+
+if (ball.x > 300) {
+
+    if (hardMode) {
+
+        ball.x = initialBallX;
+        ball.y = initialBallY;
+
+        ball.vx = 0;
+        ball.vy = 0;
+
+    }
+    else {
 
         ball.x = 300;
         ball.vx = -ball.vx * 0.5;
 
     }
 
-    if (ball.y < 0) {
+}
+
+if (ball.y < 0) {
+
+    if (hardMode) {
+
+        ball.x = initialBallX;
+        ball.y = initialBallY;
+
+        ball.vx = 0;
+        ball.vy = 0;
+
+    }
+    else {
 
         ball.y = 0;
         ball.vy = -ball.vy * 0.5;
 
     }
 
-    if (ball.y > 400) {
+}
+
+if (ball.y > 400) {
+
+    if (hardMode) {
+
+        ball.x = initialBallX;
+        ball.y = initialBallY;
+
+        ball.vx = 0;
+        ball.vy = 0;
+
+    }
+    else {
 
         ball.y = 400;
         ball.vy = -ball.vy * 0.5;
 
     }
+
+}
 
 
     // --------------------------------------
@@ -447,9 +510,9 @@ function update() {
     ygoal = ygoal + gyspeed;
 
 
-    if (xgoal >= 270 && ygoal == 20) {
+    if (xgoal >= 145 && ygoal == 20) {
 
-        xgoal = 270;
+        xgoal = 145;
 
         gxspeed = 0;
         gyspeed = 1.0;
@@ -457,7 +520,7 @@ function update() {
     }
 
 
-    if (xgoal == 270 && ygoal >= 80) {
+    if (xgoal == 145 && ygoal >= 80) {
 
         ygoal = 80;
 
