@@ -56,6 +56,7 @@
 //
 //      let ball = { x: 150, y: 200, vx: 0, vy: 0 };
 
+let ball = { x: 150, y: 200, vx: 0, vy: 0 }
 
 
 
@@ -72,8 +73,34 @@
 //
 //  確認: 画面中央に玉が表示される。まだ動かない。
 
+function update() {
+        drawBall(ball.x, ball.y);
+        ball.vx = ball.vx * 0.98;
+        ball.vy = ball.vy * 0.98;
+        ball.vx = ball.vx + tilt.x * 0.7;
+　　　　ball.vy = ball.vy + tilt.y * 0.7;
+　　　　ball.x = ball.x + ball.vx;
+　　　　ball.y = ball.y + ball.vy;
+
+if (ball.x < 0) {
+ball.x = 0;
+ball.vx = -ball.vx * 0.5;
+}
+if (ball.x > 300) {
+ball.x = 300;
+ball.vx = -ball.vx * 0.5;
+}
+if (ball.y < 0) {
+ball.y = 0;
+ball.vy = -ball.vy * 0.5;
+}
+if (ball.y > 400) {
+ball.y = 400;
+ball.vy = -ball.vy * 0.5;
+}
 
 
+      
 
 
 // ------------------------------------------------------------
@@ -219,3 +246,4 @@
 //    ・壁ごとに反発係数を変える
 //
 // ============================================================
+}
